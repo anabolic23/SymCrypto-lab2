@@ -8,6 +8,7 @@
 #include <map>
 #include <regex>
 #include <vector>
+#include <stdlib.h>
 
 class Tools {
 private:
@@ -27,7 +28,17 @@ public:
 	std::wstring EncodeVigenere(const std::wstring& text, const std::wstring& key);
 	void ProcessAndEncodeTextFile(const std::wstring& key);
 
-	double CalculateIoC(const std::string& fileName);
-	void CalculateAndCompareIoCs();
+	double CalculateI(const std::string& fileName);
+	void CalculateAndCompareI();
+
+	std::wstring ReadFile(const std::string& inputFileName);
+	std::vector<std::wstring> DivideIntoBlocks(const std::wstring& text, size_t blockSize);
+	std::wstring CrackKeyMi(const std::wstring& text, size_t key_length);
+	size_t DetermineKeyLength(const std::string& inputfileName);
+	double CalculateIForBlocks(const std::vector<std::wstring>);
+	double CalculateExpectedI(const std::vector<double>& probabilities);
+	std::wstring DetermineKeyByMostFrequentLetters(const std::wstring& text, size_t keyLength);
+	std::wstring DecodeVigenere(const std::wstring& encodedText, const std::wstring& key);
+	void ProcessAndDecodeTextFile(const std::wstring& key);
 };
 
