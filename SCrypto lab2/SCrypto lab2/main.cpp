@@ -23,9 +23,9 @@ int main() {
     tool.CalculateAndCompareI();
 
     auto text = tool.ReadFile("../encoded.txt");
-    for (int i = 2; i < 40; i++) {
+    for (int i = 2; i < 41; i++) {
         auto key = tool.CrackKeyMi(text, i);
-        std::wcout << "i:" << i << " key: " << key << std::endl;
+        std::wcout << "i:" << i << " key: " << key << " \\\\ " << std::endl;
     }
     
     size_t keyLength = tool.DetermineKeyLength("../encoded.txt");

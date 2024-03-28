@@ -237,13 +237,16 @@ size_t Tools::DetermineKeyLength(const std::string& fileName) {
     size_t keyLength = 0;
     double expectedI = tool.CalculateExpectedI(probabilities);
 
-    for (size_t len = 1; len <= 40; ++len) {
+    for (size_t len = 1; len <= 41; ++len) {
         double IoC = tool.CalculateIForBlocks(tool.DivideIntoBlocks(text, len));
         if (abs(expectedI - IoC) < abs(expectedI - averageIoC)) {
             averageIoC = IoC;
             keyLength = len;
+
+            
         }
-        /*std::cout << IoC << std::endl;*/
+
+        std::cout << len << " & " << IoC << " \\\\ " << std::endl;
     }
 
     return keyLength;
